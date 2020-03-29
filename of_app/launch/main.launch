@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <arg name="sim" default="false" />
+    <arg name="rvizconfig" default="$(find toio_pkg)/config/setting.rviz" />
+
+    <group if="$(arg sim)">
+        <include file="$(find toio_sim)/launch/main.launch"/>
+        <group ns="toio1">
+            <node name="pose_converter" pkg="toio_pkg" type="pose_converter.py" />
+            <node name="twist_converter" pkg="toio_pkg" type="twist_converter.py" />
+        </group>        
+    </group>
+
+    <group ns="toio1">
+        <node name="toio_commander" pkg="of_app" type="toio_commander.py" />
+        <node name="motion_controller" pkg="of_app" type="motion_controller.py" />
+    </group>
+    <!-- <node name="circle" pkg="toio_pkg" type="circle.py" output="screen"/> -->
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" output="screen"/>
+
+
+</launch>

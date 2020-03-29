@@ -1,0 +1,43 @@
+<launch>
+    <arg name="rvizconfig" default="$(find toio_pkg)/config/setting.rviz" />
+    <group ns="toio1">
+        <node name="toio_bridge" pkg="toio_pkg" type="toio_bridge.py" output="screen" respawn="true">
+            <param name="address" value="F0:5D:68:8E:A8:7C"/>
+            <param name="iface" value="0"/>
+        </node>
+        <node name="tf_broadcaster" pkg="toio_pkg" type="tf_broadcaster.py" output="screen">
+            <param name="frame_id" value="toio1"/>
+        </node>
+    </group>
+    <group ns="toio2">
+        <node name="toio_bridge" pkg="toio_pkg" type="toio_bridge.py" output="screen" respawn="true">
+            <param name="address" value="D1:22:D4:F2:22:2C"/>
+            <param name="iface" value="1"/>
+        </node>
+        <node name="tf_broadcaster" pkg="toio_pkg" type="tf_broadcaster.py" output="screen">
+            <param name="frame_id" value="toio2"/>
+        </node>
+    </group>
+    <group ns="toio3">
+        <node name="toio_bridge" pkg="toio_pkg" type="toio_bridge.py" output="screen" respawn="true">
+            <param name="address" value="EA:68:9F:80:2A:15"/>
+            <param name="iface" value="2"/>
+        </node>
+        <node name="tf_broadcaster" pkg="toio_pkg" type="tf_broadcaster.py" output="screen">
+            <param name="frame_id" value="toio3"/>
+        </node>
+    </group>
+    <group ns="toio4">
+        <node name="toio_bridge" pkg="toio_pkg" type="toio_bridge.py" output="screen" respawn="true">
+            <param name="address" value="E9:8A:34:5B:1C:1F"/>
+            <param name="iface" value="3"/>
+        </node>
+        <node name="tf_broadcaster" pkg="toio_pkg" type="tf_broadcaster.py" output="screen">
+            <param name="frame_id" value="toio4"/>
+        </node>
+    </group>
+
+    <node name="circle" pkg="toio_pkg" type="circle.py" output="screen"/>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" output="screen"/>
+</launch>

@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://toio_mat</uri>
+      <static>true</static>
+    </include>
+    <include>
+      <uri>model://toio_frame</uri>
+      <static>true</static>
+    </include>
+
+    <include>
+      <uri>model://toio_cube_doll1</uri>
+      <pose>0 0.1 0.004 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://toio_cube_doll2</uri>
+      <pose>0 -0.1 0.004 0 0 0</pose>
+    </include>
+
+    <!-- <model name="projector">
+      <pose>0 0 1.0 0 0 0</pose>
+      <static>true</static>
+      <link name="projector">
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0083</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>0.0083</iyy>
+            <iyz>0.0</iyz>
+            <izz>0.0083</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+        </visual>
+        <projector name="projector_test_head">
+          <pose>0 0 0 0 0 0</pose>
+          <texture>test_pattern.png</texture>
+          <fov>0.4</fov>
+          <near_clip>0.1</near_clip>
+          <far_clip>10.0</far_clip>
+        </projector>
+      </link>
+
+     <plugin name="projector_test_controller" filename="libgazebo_ros_projector.so">
+        <projector>projector/projector_test_head</projector>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>5.0</updateRate>
+        <textureTopicName>projector_test/texture</textureTopicName>
+        <projectorTopicName>projector_test/projector</projectorTopicName>
+    </plugin>
+
+    </model> -->
+
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.005</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>200</real_time_update_rate>
+    </physics>
+  </world>
+</sdf>
