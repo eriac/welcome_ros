@@ -9,15 +9,42 @@
             <node name="pose_converter" pkg="toio_pkg" type="pose_converter.py" />
             <node name="twist_converter" pkg="toio_pkg" type="twist_converter.py" />
         </group>        
+        <group ns="toio2">
+            <node name="pose_converter" pkg="toio_pkg" type="pose_converter.py" />
+            <node name="twist_converter" pkg="toio_pkg" type="twist_converter.py" />
+        </group>        
+    </group>
+    <group unless="$(arg sim)">
+        <group ns="toio1">
+            <node name="toio_bridge" pkg="toio_pkg" type="toio_bridge.py" output="screen" respawn="true">
+                <param name="address" value="F0:5D:68:8E:A8:7C"/>
+                <param name="iface" value="1"/>
+            </node>
+            <node name="tf_broadcaster" pkg="toio_pkg" type="tf_broadcaster.py" output="screen">
+                <param name="frame_id" value="toio1"/>
+            </node>
+            <node name="odom_generator" pkg="toio_pkg" type="odom_generator.py" />
+        </group>
+        <group ns="toio2">
+            <node name="toio_bridge" pkg="toio_pkg" type="toio_bridge.py" output="screen" respawn="true">
+                <param name="address" value="D1:22:D4:F2:22:2C"/>
+                <param name="iface" value="2"/>
+            </node>
+            <node name="tf_broadcaster" pkg="toio_pkg" type="tf_broadcaster.py" output="screen">
+                <param name="frame_id" value="toio2"/>
+            </node>
+            <node name="odom_generator" pkg="toio_pkg" type="odom_generator.py" />
+        </group>
     </group>
 
     <group ns="toio1">
         <node name="toio_commander" pkg="of_app" type="toio_commander.py" />
         <node name="motion_controller" pkg="of_app" type="motion_controller.py" />
     </group>
-    <!-- <node name="circle" pkg="toio_pkg" type="circle.py" output="screen"/> -->
+    <group ns="toio2">
+        <node name="toio_commander" pkg="of_app" type="toio_commander.py" />
+        <node name="motion_controller" pkg="of_app" type="motion_controller.py" />
+    </group>
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" output="screen"/>
-
-
 </launch>

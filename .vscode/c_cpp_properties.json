@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/ubuntu/catkin_ws/devel/include/**",
+                "/opt/ros/kinetic/include/**",
+                "/home/ubuntu/catkin_ws/src/welcome_ros/of_app/include/**",
+                "/home/ubuntu/catkin_ws/src/welcome_ros/of_msgs/include/**",
+                "/home/ubuntu/catkin_ws/src/welcome_ros/toio_pkg/include/**",
+                "/home/ubuntu/catkin_ws/src/welcome_ros/toio_sim/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

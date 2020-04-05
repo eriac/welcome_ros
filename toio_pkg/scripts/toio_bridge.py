@@ -124,7 +124,7 @@ class ToioBridge(ToioBLE):
         self.battery_pub = rospy.Publisher('battery', Int32, queue_size=10)
         self.scan_pose_pub = rospy.Publisher('scan_pose', ScanPose, queue_size=10)
         self.pose_pub = rospy.Publisher('pose', PoseStamped, queue_size=10)
-        self.twist_sub = rospy.Subscriber("cmd_vel", TwistStamped, self.twist_callback)
+        self.twist_sub = rospy.Subscriber("cmd_vel_stamped", TwistStamped, self.twist_callback)
         self.lamp_sub = rospy.Subscriber('lamp', ColorRGBA, self.lamp_callback)
         self.effect_sound_sub = rospy.Subscriber("sound", Sound, self.sound_callback)
         super(ToioBridge, self).__init__(self.mac_address, self.iface)

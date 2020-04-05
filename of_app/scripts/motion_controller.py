@@ -53,17 +53,17 @@ class MotionController:
         finish = False
         if self.command_stage == 0:
             cmd_vel.twist.linear.x = 0
-            cmd_vel.twist.angular.z = self.clip(3.0 * dyaw, -1.5, 1.5)
+            cmd_vel.twist.angular.z = self.clip(6.0 * dyaw, -3.5, 3.5)
             if math.fabs(dyaw) < 0.5:
                 self.command_stage = 1
         elif self.command_stage == 1:
             cmd_vel.twist.linear.x = self.clip(2.0 * dx, -0.2, 0.2)
-            cmd_vel.twist.angular.z = self.clip(3.0 * dyaw, -1.5, 1.5)
+            cmd_vel.twist.angular.z = self.clip(6.0 * dyaw, -3.5, 3.5)
             if math.fabs(dyaw) < 0.3 and dx < 0.05:
                 self.command_stage = 2
         elif self.command_stage == 2:
             cmd_vel.twist.linear.x = 0
-            cmd_vel.twist.angular.z = self.clip(3.0 * (target_yaw - self_yaw), -1.5, 1.5)
+            cmd_vel.twist.angular.z = self.clip(6.0 * (target_yaw - self_yaw), -3.5, 3.5)
             if math.fabs(target_yaw - self_yaw) < 0.1:
                 self.command_stage = 3
         elif self.command_stage == 3:
