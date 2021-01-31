@@ -26,20 +26,20 @@ class ToioCommander:
             motion_command = MotionCommand()
             motion_command.type = MotionCommand.TYPE_GOTO_FORWARD
             motion_command.goal.position.x = -0.20
-            motion_command.goal.position.y = 0.10
+            motion_command.goal.position.y = 0.05
             motion_command.goal.orientation.w = 1.0
             self.motion_pub.publish(motion_command)
         elif(msg.data=="G3"):
             motion_command = MotionCommand()
             motion_command.type = MotionCommand.TYPE_GOTO_FORWARD
             motion_command.goal.position.x = 0.10
-            motion_command.goal.position.y = 0.20
+            motion_command.goal.position.y = 0.10
             motion_command.goal.orientation.w = 1.0
             self.motion_pub.publish(motion_command)
         elif(msg.data=="G4"):
             motion_command = MotionCommand()
             motion_command.type = MotionCommand.TYPE_GOTO_FORWARD
-            motion_command.goal.position.x = 0.00
+            motion_command.goal.position.x = 0.10
             motion_command.goal.position.y = 0.20
             motion_command.goal.orientation.w = 1.0
             self.motion_pub.publish(motion_command)
@@ -54,20 +54,20 @@ class ToioCommander:
             motion_command = MotionCommand()
             motion_command.type = MotionCommand.TYPE_GOTO_FORWARD
             motion_command.goal.position.x = -0.20
-            motion_command.goal.position.y = -0.10
+            motion_command.goal.position.y = -0.05
             motion_command.goal.orientation.w = 1.0
             self.motion_pub.publish(motion_command)
         elif(msg.data=="B3"):
             motion_command = MotionCommand()
             motion_command.type = MotionCommand.TYPE_GOTO_FORWARD
             motion_command.goal.position.x = 0.10
-            motion_command.goal.position.y = -0.20
+            motion_command.goal.position.y = -0.10
             motion_command.goal.orientation.w = 1.0
             self.motion_pub.publish(motion_command)
         elif(msg.data=="B4"):
             motion_command = MotionCommand()
             motion_command.type = MotionCommand.TYPE_GOTO_FORWARD
-            motion_command.goal.position.x = 0.00
+            motion_command.goal.position.x = 0.10
             motion_command.goal.position.y = -0.20
             motion_command.goal.orientation.w = 1.0
             self.motion_pub.publish(motion_command)
